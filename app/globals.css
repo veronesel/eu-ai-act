@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --border: #E2E8F0;
+  --panel-bg: rgba(255, 255, 255, 0.7);
+  --panel-border: rgba(203, 213, 225, 0.8);
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+}
+
+.dark {
+  --background: #050810;
+  --foreground: #E7E9EE;
+  --border: #1E293B;
+  --panel-bg: rgba(15, 23, 42, 0.6);
+  --panel-border: rgba(51, 65, 85, 0.5);
+  --text-secondary: #9AA4B2;
+  --text-muted: #6B7688;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+}
+
+.glass-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+}
+
+.aurora-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aurora-ribbon {
+  position: absolute;
+  width: 140%;
+  height: 60%;
+  top: -10%;
+  left: -20%;
+  background: linear-gradient(120deg, rgba(16, 185, 129, 0.10), rgba(6, 182, 212, 0.08) 40%, transparent 70%);
+  background-size: 200% 200%;
+  filter: blur(60px);
+  animation: aurora-drift 48s ease-in-out infinite;
+}
+
+.aurora-ribbon-2 {
+  position: absolute;
+  width: 140%;
+  height: 55%;
+  top: -5%;
+  right: -25%;
+  background: linear-gradient(240deg, rgba(139, 92, 246, 0.09), rgba(99, 102, 241, 0.07) 45%, transparent 70%);
+  background-size: 200% 200%;
+  filter: blur(60px);
+  animation: aurora-drift 56s ease-in-out infinite reverse;
+}
+
+.dark .aurora-ribbon,
+.dark .aurora-ribbon-2 {
+  opacity: 1;
+}
+.aurora-ribbon,
+.aurora-ribbon-2 {
+  opacity: 0.5;
+}
+
+@keyframes aurora-drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
