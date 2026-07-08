@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aegis — EU AI Act Compliance & Governance Platform
 
-## Getting Started
+A single-pane-of-glass reference implementation of Regulation (EU) 2024/1689 compliance and governance workflows, built for a fictional systemic Italian bank, **Eurobank Capital SpA**, modeled as both a Provider and a Deployer under the Act — sometimes for the same AI system at once.
 
-First, run the development server:
+Not a certified compliance tool. Not legal advice. See `/help/regulatory-context` in the running app.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Quick start
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+See `SETUP.md`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What this is
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js 14 (App Router) + TypeScript, single process, no external services.
+- `better-sqlite3` database, schema + demo data auto-applied on boot.
+- Real Anthropic tool-use loop agents (9 of them) behind a human-approval gate — nothing is written to an operational table until a person clicks Approve.
+- A dual regulatory timeline (original Regulation (EU) 2024/1689 vs. the Digital Omnibus on AI's agreed-but-unpublished text), toggleable live across every date-driven screen.
+- Eight fast-login personas, each with a permission-matrix-enforced dashboard.
 
-## Learn More
+## Where things live
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `lib/db/schema.ts` — the full data model.
+- `lib/demo-data/` — the seeded 10-system demo portfolio and its generator.
+- `lib/ai/` — agent definitions and the tool-use runner.
+- `app/(app)/` — every authenticated module, grouped to match the obligation families in the Act (Provider suite, Deployer suite, cross-cutting operations, assurance).
+- `app/(app)/help/` — in-app documentation, including the Archer portability appendix.

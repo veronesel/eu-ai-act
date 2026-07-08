@@ -80,7 +80,7 @@ export function ClassificationWorkflow({ system, screenings, determination, chal
 
       {!isBlocked && <AnnexMatcher system={system} determination={determination} onSaved={() => router.refresh()} />}
 
-      {!isBlocked && determination?.final_determination && determination.final_determination !== "high_risk" && (
+      {!isBlocked && determination?.final_determination === "not_high_risk" && determination.art6_3_limb1 && (
         <RegulatoryChallengePanel systemId={system.id} challenges={challenges} onChanged={() => router.refresh()} />
       )}
     </div>
