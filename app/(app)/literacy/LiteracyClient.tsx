@@ -74,7 +74,7 @@ export function LiteracyClient({ records, canWrite }: { records: LiteracyRecord[
                 {chartData.map((d, i) => (
                   <Cell key={i} fill={STATUS_COLORS[statusFor(d.completion_pct)]} />
                 ))}
-                <LabelList dataKey="completion_pct" position="right" formatter={(v: number) => `${v}%`} style={{ fontSize: 11, fill: "var(--text-secondary)" }} />
+                <LabelList dataKey="completion_pct" position="right" formatter={(v: unknown) => `${v}%`} style={{ fontSize: 11, fill: "var(--text-secondary)" }} />
               </Bar>
             </BarChart>
           </ResponsiveContainer>

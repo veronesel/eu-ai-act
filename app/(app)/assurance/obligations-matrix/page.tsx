@@ -1,6 +1,6 @@
 import { getDb } from "@/lib/db/client";
 import { SectionHeading } from "@/components/ui/Glass";
-import { computeEvidenceStatus, ensureEvidenceLinksSeeded, type EvidenceStatus } from "@/lib/domain/assurance";
+import { computeEvidenceStatus, ensureEvidenceLinksSeeded, type EvidenceStatus } from "@/lib/domain/assurance-evidence";
 import { ObligationsMatrixClient } from "./ObligationsMatrixClient";
 
 export default function ObligationsMatrixPage() {
